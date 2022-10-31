@@ -1,4 +1,4 @@
-name: Task#2
+name: Task#2 tests
 
 on: [push, pull_request]
 
