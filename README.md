@@ -1,6 +1,6 @@
 ![Gradle build](https://github.com/cscenter/Kotlin-test-1/actions/workflows/gradle-build.yml/badge.svg)
-![Task#1 tests](https://github.com/cscenter/Kotlin-test-1/actions/workflows/test-hagman.yml/badge.svg)
-![Task#2 tests](https://github.com/cscenter/Kotlin-test-1/actions/workflows/test-photoshop.yml/badge.svg)
+![Task#1 tests](https://github.com/cscenter/Kotlin-test-1/actions/workflows/test-task1.yml/badge.svg)
+![Task#2 tests](https://github.com/cscenter/Kotlin-test-1/actions/workflows/test-task2.yml/badge.svg)
 ![Detekt](https://github.com/cscenter/Kotlin-test-1/actions/workflows/detekt.yml/badge.svg)
 ![Diktat](https://github.com/cscenter/Kotlin-test-1/actions/workflows/diktat.yml/badge.svg)
 
