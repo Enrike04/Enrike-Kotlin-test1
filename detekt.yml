@@ -14,7 +14,7 @@ style:
   ForbiddenComment:
     active: false
   ReturnCount:
-    max: 3
+    max: 5
   MagicNumber:
     active: false
 
