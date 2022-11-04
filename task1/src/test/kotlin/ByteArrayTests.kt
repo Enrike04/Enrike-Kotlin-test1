@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -35,6 +36,12 @@ internal class ByteArrayTests {
     fun zipUnzipCorrectTest(array: ByteArray) {
         assertArrayEquals(array, array.zip().unZip())
         assertThrows<AssertionFailedError> { assertArrayEquals(array, array.zip()) }
+    }
+
+    @Test
+    fun zipUnzipEmptyTest() {
+        val array = emptyList<Byte>().toByteArray()
+        assertArrayEquals(array, array.zip().unZip())
     }
 
     @ParameterizedTest
