@@ -169,3 +169,7 @@
   enabled: false
 - name: FUNCTION_BOOLEAN_PREFIX
   enabled: false
+- name: AVOID_NULL_CHECKS
+  enabled: false
+- name: AVOID_NULL_CHECKS
+  enabled: false
