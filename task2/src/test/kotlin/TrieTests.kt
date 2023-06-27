@@ -87,6 +87,29 @@ internal class TrieTests {
         assertFalse(trie.contains(""))
     }
 
+    @Test
+    fun equalStrings() {
+        val trie: Trie = TrieImpl()
+
+        repeat(10) { trie.add("hello") }
+
+        assertTrue(trie.contains("hello"))
+        assertEquals(1, trie.howManyStartsWithPrefix("h"))
+        assertEquals(1, trie.size())
+
+        assertTrue(trie.remove("hello"))
+
+        assertFalse(trie.contains("hello"))
+        assertEquals(0, trie.howManyStartsWithPrefix("h"))
+        assertEquals(0, trie.size())
+
+        assertFalse(trie.remove("hello"))
+
+        assertFalse(trie.contains("hello"))
+        assertEquals(0, trie.howManyStartsWithPrefix("h"))
+        assertEquals(0, trie.size())
+    }
+
     private fun randomString(length: Int): String {
         val array = ByteArray(length)
         random.nextBytes(array)
@@ -99,7 +122,7 @@ internal class TrieTests {
         val inTrie: MutableSet<String> = HashSet()
         repeat(100000) {
             val wordSize: Int = random.nextInt(15) + 1
-            val newWord = randomString(wordSize).strip()
+            val newWord = randomString(wordSize).trim()
             when (random.nextInt(4)) {
                 0 -> {
                     poorTrie.add(newWord)
