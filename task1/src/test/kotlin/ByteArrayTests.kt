@@ -82,4 +82,3 @@ internal class ByteArrayTests {
         assertEquals(expectedSize, array.zip().size)
     }
 }
-
