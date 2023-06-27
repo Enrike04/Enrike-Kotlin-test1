@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run all linters" type="CompoundRunConfigurationType">
+    <toRun name="Run Detekt" type="GradleRunConfiguration" />
+    <toRun name="Run Diktat" type="GradleRunConfiguration" />
+    <method v="2" />
+  </configuration>
+</component>
