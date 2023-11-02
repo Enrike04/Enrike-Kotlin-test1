@@ -7,6 +7,8 @@
     testDirs: "test,nativeTest,commonTest"
 - name: PARAMETER_NAME_IN_OUTER_LAMBDA
   enabled: false
+- name: DEBUG_PRINT
+  enabled: false
 - name: ENUM_VALUE
   enabled: true
   configuration:
