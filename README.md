@@ -1,10 +1,8 @@
-[![Test1](https://github.com/cscenter/Kotlin-test-1/actions/workflows/Test1.yml/badge.svg)](https://github.com/cscenter/Kotlin-test-1/actions/workflows/Test1.yml)
-
 ### Test #1
 
 In this test you need to complete two tasks:
-- [Task#1](./task1/README.md)
-- [Task#2](./task2/README.md)
+- [Task #1](./basic/README.md)
+- [Task #2](./oop/README.md)
 
 See the provided links for more details.
 
