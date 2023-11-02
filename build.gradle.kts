@@ -1,4 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+group = "org.jetbrains.edu"
+version = "1.0"
 
 plugins {
     kotlin("jvm") version "1.9.20"
@@ -6,38 +7,40 @@ plugins {
     id("org.cqfn.diktat.diktat-gradle-plugin") version "1.2.3"
 }
 
-group = "org.jetbrains.edu"
-version = "1.0"
-
-repositories {
-    mavenCentral()
+kotlin {
+    jvmToolchain(8)
 }
 
-dependencies {
-    implementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
-    runtimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
-    implementation("org.junit.jupiter:junit-jupiter-params:5.9.0")
-    runtimeOnly("org.junit.platform:junit-platform-console:1.9.0")
-}
+allprojects {
+    apply {
+        plugin("java")
+        plugin("kotlin")
+        plugin("io.gitlab.arturbosch.detekt")
+    }
 
-tasks.test {
-    useJUnitPlatform()
-}
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
+    repositories {
+        mavenCentral()
+    }
 
-detekt {
-    buildUponDefaultConfig = true
-    allRules = false
-    config.setFrom("$projectDir/config/detekt.yml")
+    dependencies {
+        implementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
+        runtimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
+        implementation("org.junit.jupiter:junit-jupiter-params:5.9.0")
+        runtimeOnly("org.junit.platform:junit-platform-console:1.9.0")
+    }
+
+    tasks.test {
+        useJUnitPlatform()
+    }
 }
 
 diktat {
     inputs {
-        include("src/**/*.kt")
-        exclude("src/test/**")
+        include("oop/src/**/*.kt")
+        include("basic/src/**/*.kt")
+        exclude("oop/src/test/**")
+        exclude("basic/src/test/**")
     }
     diktatConfigFile = file("$projectDir/config/diktat.yml")
 }
@@ -45,4 +48,9 @@ diktat {
 tasks.register("diktat") {
     group = "verification"
     dependsOn(tasks.getByName("diktatCheck"))
+}
+
+tasks.getByName("detekt") {
+    dependsOn(":basic:detekt")
+    dependsOn(":oop:detekt")
 }
