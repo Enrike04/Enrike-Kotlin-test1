@@ -1,3 +1,5 @@
+package org.jetbrains.edu
+
 interface Trie {
     fun add(element: String): Boolean
 

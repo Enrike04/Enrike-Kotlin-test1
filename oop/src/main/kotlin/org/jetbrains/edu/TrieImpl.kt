@@ -1,3 +1,5 @@
+package org.jetbrains.edu
+
 class TrieImpl : Trie {
     override fun add(element: String): Boolean {
         TODO("Not yet implemented")
