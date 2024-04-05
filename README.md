@@ -1,10 +1,8 @@
-[![Test1](https://github.com/cscenter/Kotlin-test-1/actions/workflows/Test1.yml/badge.svg)](https://github.com/cscenter/Kotlin-test-1/actions/workflows/Test1.yml)
-
 ### Test #1
 
 In this test you need to complete two tasks:
-- [Task#1](./task1/README.md)
-- [Task#2](./task2/README.md)
+- [Task #1](./basic/README.md)
+- [Task #2](./oop/README.md)
 
 See the provided links for more details.
 
@@ -16,10 +14,10 @@ To run the tests you could use predefined run configurations or run them manuall
 
 * To run all tests locally you can use:`./gradlew test`;
 
-* To run only task 1 tests locally, you can use:`./gradlew :task1:test`;
+* To run only task 1 tests locally, you can use:`./gradlew :basic:test`;
 
-* To run only task 2 tests locally, you can use:`./gradlew :task2:test`;
+* To run only task 2 tests locally, you can use:`./gradlew :oop:test`;
 
-* To run Detekt locally, you can use: `./gradlew detektCheckAll`;
+* To run Detekt locally, you can use: `./gradlew detekt`;
 
-* To run Diktat locally, you can use: `./gradlew diktatCheckAll`.
+* To run Diktat locally, you can use: `./gradlew diktat`.

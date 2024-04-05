@@ -1,22 +1,23 @@
-import buildutils.configureDetekt
-import buildutils.createDetektTask
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jetbrains.research.code.submissions.clustering.buildutils.configureDiktat
-import org.jetbrains.research.code.submissions.clustering.buildutils.createDiktatTask
+group = "org.jetbrains.edu"
+version = "1.0"
 
 plugins {
-    kotlin("jvm")
-    id("com.github.gmazzo.buildconfig") version "3.0.3"
+    kotlin("jvm") version "1.9.20"
+    id("io.gitlab.arturbosch.detekt") version "1.23.3"
+    id("org.cqfn.diktat.diktat-gradle-plugin") version "1.2.3"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+kotlin {
+    jvmToolchain(8)
+}
 
 allprojects {
     apply {
         plugin("java")
         plugin("kotlin")
+        plugin("io.gitlab.arturbosch.detekt")
     }
+
 
     repositories {
         mavenCentral()
@@ -32,14 +33,24 @@ allprojects {
     tasks.test {
         useJUnitPlatform()
     }
-
-    tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-
-    configureDiktat()
-    configureDetekt()
 }
 
-createDiktatTask()
-createDetektTask()
+diktat {
+    inputs {
+        include("oop/src/**/*.kt")
+        include("basic/src/**/*.kt")
+        exclude("oop/src/test/**")
+        exclude("basic/src/test/**")
+    }
+    diktatConfigFile = file("$projectDir/config/diktat.yml")
+}
+
+tasks.register("diktat") {
+    group = "verification"
+    dependsOn(tasks.getByName("diktatCheck"))
+}
+
+tasks.getByName("detekt") {
+    dependsOn(":basic:detekt")
+    dependsOn(":oop:detekt")
+}

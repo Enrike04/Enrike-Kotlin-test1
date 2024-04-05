@@ -1,5 +1,4 @@
+rootProject.name = "kotlin-test-basic-oop"
 
-rootProject.name = "test-1"
-
-include("task1")
-include("task2")
+include("basic")
+include("oop")
